@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { chromium } from 'playwright';
+import { firefox as chromium } from 'playwright';
 
 const args = process.argv.slice(2);
 const cmd = args[0];

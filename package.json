@@ -9,11 +9,19 @@
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": ["playwright", "browser", "cli", "automation"],
+  "keywords": [
+    "playwright",
+    "browser",
+    "cli",
+    "automation"
+  ],
   "license": "MIT",
   "author": "alephtex",
   "repository": {
     "type": "git",
     "url": "https://github.com/alephtex/playwright-cli"
+  },
+  "dependencies": {
+    "playwright": "^1.59.1"
   }
 }
