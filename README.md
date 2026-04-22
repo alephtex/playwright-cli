@@ -1,58 +1,62 @@
-# Playwright CLI
+# playwright-cli
 
-Simple browser automation CLI using Playwright.
+Simple Playwright CLI for browser automation with persistent browser state.
 
-## Install
+## Features
+
+- **Persistent Browser** - Browser stays open between commands
+- **Tab Management** - Open, close, switch tabs
+- **Full Browser Control** - Click, fill, upload, screenshot
+
+## Installation
 
 ```bash
-npm install -g playwright-cli
-```
-
-Or download and run directly:
-```bash
-curl -fsSL https://raw.githubusercontent.com/alephtex/playwright-cli/main/index.js -o ~/.local/bin/pw
-chmod +x ~/.local/bin/pw
-```
-
-Requires Playwright browsers:
-```bash
-npx playwright install chromium
+git clone https://github.com/alephtex/playwright-cli.git
+cd playwright-cli
+npm install
+npm install playwright
+npx playwright install firefox
 ```
 
 ## Usage
 
 ```bash
-pw navigate <url>           # Navigate to URL
-pw shot-url <url> [path]    # Navigate + screenshot
-pw screenshot [path] [url]  # Screenshot
-pw click <sel> [url]        # Click element
-pw fill <sel> <text> [url]  # Fill input
-pw text <sel> [url]         # Get text content
-pw html [sel] [url]         # Get HTML
+pw navigate <url>       # Go to URL
+pw screenshot [path]    # Screenshot
+pw click <selector>     # Click element
+pw fill <sel> <text>   # Fill input
+pw upload <sel> <file>  # Upload file
+
+# Tab management
+pw tab-new [url]        # New tab
+pw tab-list             # List tabs
+pw tab-select <N>       # Switch to tab N
+pw tab-close <N>        # Close tab N
+
+# Browser control
+pw close                # Close current tab
+pw close-all            # Close all tabs
+pw close-window         # Close entire browser
+pw status               # Show browser state
 ```
 
-## Examples
+## Commands
 
-```bash
-# Navigate and get title
-pw navigate https://github.com
+| Command | Description |
+|---------|-------------|
+| navigate | Go to URL |
+| screenshot | Screenshot current page |
+| click/dblclick/hover | Mouse actions |
+| fill/type | Input text |
+| upload | File upload |
+| text/html/attr | Query elements |
+| tab-new/tab-list/tab-select/tab-close | Tab management |
+| close/close-all/close-window | Close commands |
+| status | Browser state |
 
-# Take screenshot
-pw shot-url https://github.com github.png
+## Browser
 
-# Get page title
-pw text "title" https://github.com
-
-# Get element text
-pw text "h1" https://github.com
-```
-
-## Output
-
-JSON responses:
-```json
-{"success":true,"url":"https://github.com/","title":"GitHub"}
-```
+Default: **Firefox** (headless: false)
 
 ## License
 
