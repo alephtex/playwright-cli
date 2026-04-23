@@ -1,3 +1,5 @@
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/steimerbyte)
+
 # playwright-cli
 
 Simple Playwright CLI for browser automation with persistent browser state.
